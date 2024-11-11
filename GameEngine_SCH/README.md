@@ -5,6 +5,10 @@
     - make run (to run the game)
     - make clean (optionally)
 
+## Output (0V1)
+
+![Terminal](./assets/Output_makeRun_20241111_V0.png)
+
 ## Basic Folder Structure
 ```plaintext
 ├── GameEngine_SCH
@@ -23,6 +27,11 @@
 │   ├── include
 │   │   └── Engine.h
 │   ├── Makefile
-│   └── README.md
+│   ├── README.md
+|   ├── assets
+
+
+
+
 
 
