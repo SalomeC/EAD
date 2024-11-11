@@ -1,30 +1,33 @@
 #include "Engine.h"
+#include "Logger.h"
 #include <iostream>
 
 namespace EngineNamespace {
 
     Engine::Engine() {
-        std::cout << "Engine Constructor: Engine Initialized." << std::endl;
+        Logger::init();
+        Logger::info("Engine Constructor: Engine Initialized.");
     }
 
     Engine::~Engine() {
-        std::cout << "Engine Destructor: Cleaning up Engine." << std::endl;
+        Logger::info("Engine Destructor: Cleaning up Engine.");
     }
 
     void Engine::Initialize() {
-        std::cout << "Engine Initialization Started." << std::endl;
+ 
+        Logger::info("Engine Initialization Started.");
     }
 
     void Engine::Run() {
-        std::cout << "Engine Running!" << std::endl;
+        Logger::info("Engine Running!");
     }
 
     void Engine::Start() {
-        std::cout << "Engine Start: Starting the Engine." << std::endl;
+        Logger::info("Engine Start: Starting the Engine.");
     }
 
     void Engine::Stop() {
-        std::cout << "Engine Stop: Stopping the Engine." << std::endl;
+        Logger::info("Engine Stop: Stopping the Engine.");
     }
 
 } // namespace EngineNamespace

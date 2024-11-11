@@ -5,9 +5,13 @@
     - make run (to run the game)
     - make clean (optionally)
 
-## Output (0V1)
+## Output (0V0) after Engine Setup
 
 ![Terminal](./assets/Output_makeRun_20241111_V0.png)
+
+## Output (0V1) after adding a Logging System
+
+![Terminal](./assets/Output_makeRun_20241111_V1.png)
 
 ## Basic Folder Structure
 ```plaintext
@@ -18,6 +22,7 @@
 │   │   ├── private_include
 │   │   └── src
 │   │       └── Engine.cpp
+│   │       └── Logger.cpp
 │   ├── game
 │   │   ├── game
 │   │   ├── Makefile
@@ -26,6 +31,7 @@
 │   │       ├── main.cpp
 │   ├── include
 │   │   └── Engine.h
+│   │   └── Logger.h
 │   ├── Makefile
 │   ├── README.md
 |   ├── assets
