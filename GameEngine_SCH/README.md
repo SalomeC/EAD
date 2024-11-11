@@ -36,6 +36,9 @@
 │   ├── README.md
 |   ├── assets
 
+### Author's notes:
+- successfully tested on a Linux environment - no functionality guaranteed for other platforms at this point
+
 
 
 
