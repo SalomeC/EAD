@@ -6,7 +6,7 @@
     - make clean (optionally)
 
 ## Basic Folder Structure
-
+```plaintext
 ├── GameEngine_SCH
 │   ├── engine
 │   │   ├── libEngine.so
