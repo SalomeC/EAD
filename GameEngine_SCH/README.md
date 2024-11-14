@@ -9,7 +9,7 @@
 ### (0V2) after adding a Window System
 
 ![Terminal](./assets/Output_makeRun_20241114_Terminal_0V2.png)
-![Terminal](./assets/Output_makeRun_20241114_Window_0V2.png)
+![Terminal](./assets/Output_makeRun_20241114_Window-1_0V2.png)
 
 ### (0V1) after adding a Logging System
 
