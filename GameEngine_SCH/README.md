@@ -5,15 +5,68 @@
     - make run (to run the game)
     - make clean (optionally)
 
-## Output (0V0) after Engine Setup
+## Output 
+### (0V2) after adding a Window System
 
-![Terminal](./assets/Output_makeRun_20241111_V0.png)
+![Terminal](./assets/Output_makeRun_20241114_Terminal_0V2.png)
+![Terminal](./assets/Output_makeRun_20241114_Window_0V2.png)
 
-## Output (0V1) after adding a Logging System
+### (0V1) after adding a Logging System
 
 ![Terminal](./assets/Output_makeRun_20241111_V1.png)
 
+
+### (0V0) after Engine Setup
+
+![Terminal](./assets/Output_makeRun_20241111_V0.png)
+
+
+
 ## Basic Folder Structure
+### (0V2)
+```plaintext
+├── GameEngine_SCH
+│   ├── assets
+│   │   ├── Output_makeRun_20241111_V0.png
+│   │   ├── Output_makeRun_20241111_V1.png
+│   │   ├── Output_makeRun_20241114_Terminal_0V2.png
+│   │   └── Output_makeRun_20241114_Window_0V2.png
+│   ├── engine
+│   │   ├── Engine.d
+│   │   ├── libEngine.so
+│   │   ├── Logger.d
+│   │   ├── Makefile
+│   │   ├── obj
+│   │   │   ├── Engine.o
+│   │   │   ├── Logger.o
+│   │   │   └── Window.o
+│   │   ├── private_include
+│   │   │   └── Window.h
+│   │   ├── src
+│   │   │   ├── Engine.cpp
+│   │   │   ├── Logger.cpp
+│   │   │   └── Window.cpp
+│   │   └── Window.d
+│   ├── game
+│   │   ├── game
+│   │   ├── main.d
+│   │   ├── Makefile
+│   │   ├── obj
+│   │   │   └── main.o
+│   │   ├── private_include
+│   │   └── src
+│   │       ├── main.cpp
+│   │       └── main.d
+│   ├── include
+│   │   ├── Engine.h
+│   │   └── Logger.h
+│   ├── Makefile
+│   └── README.md
+└── README.md
+
+```
+
+### (0V1)
 ```plaintext
 ├── GameEngine_SCH
 │   ├── engine

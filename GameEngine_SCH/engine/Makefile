@@ -3,7 +3,7 @@
 # Compiler and directory settings
 CC = g++
 CXXFLAGS = -std=c++17 -Wall -fPIC -I../include -I./private_include
-LDFLAGS = -shared -lspdlog -lfmt
+LDFLAGS = -shared -lspdlog -lfmt -lglfw
 SRCDIR = src
 OBJDIR = obj
 INCLUDEDIR = ../include

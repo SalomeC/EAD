@@ -1,6 +1,6 @@
 # Compiler and directory settings
 CC = g++
-CXXFLAGS = -std=c++17 -Wall -fPIC -I$(INCLUDEDIR) -I./private_include
+CXXFLAGS = -std=c++17 -Wall -fPIC -I$(INCLUDEDIR) -I./private_include -I../engine/private_include
 LDFLAGS = -L../engine -lEngine
 SRCDIR = src
 OBJDIR = obj

@@ -1,6 +1,8 @@
 #ifndef MYENGINE_H
 #define MYENGINE_H
 
+#include "Window.h"
+
 // Define MYENGINE_API based on the platform
 #ifdef __linux__
    #define MYENGINE_API __attribute__((visibility("default")))
@@ -15,16 +17,21 @@
 #endif
 
 namespace EngineNamespace {
-    class MYENGINE_API Engine {
-    public:
-        Engine();
-        ~Engine();
+   class MYENGINE_API Engine {
+      public:
+         Engine();
+         ~Engine();
 
-        void Initialize();
-        void Run();
-        void Start();  // Kept from the previous code
-        void Stop();   // Kept from the previous code
-    };
+         void Initialize();
+         void Run();
+         void Start();  
+         void Stop();   
+      
+      private:
+         EngineNamespace::Window m_window; // Window object
+
+      };
+
 }
 
 #endif // MYENGINE_H

@@ -4,7 +4,7 @@
 
 namespace EngineNamespace {
 
-    Engine::Engine() {
+    Engine::Engine() : m_window(800, 600, "Engine Window") {
         Logger::init();
         Logger::info("Engine Constructor: Engine Initialized.");
     }
@@ -14,12 +14,21 @@ namespace EngineNamespace {
     }
 
     void Engine::Initialize() {
- 
+        m_window.init();
         Logger::info("Engine Initialization Started.");
+        
     }
 
     void Engine::Run() {
-        Logger::info("Engine Running!");
+        int logFreq = 100;
+        int cnt = 0;
+        while (! m_window.shouldClose()){
+            m_window.update();
+            if(cnt % logFreq == 0){
+                Logger::info("Engine Running!");
+            }
+            cnt++;
+        }
     }
 
     void Engine::Start() {
@@ -29,5 +38,6 @@ namespace EngineNamespace {
     void Engine::Stop() {
         Logger::info("Engine Stop: Stopping the Engine.");
     }
+
 
 } // namespace EngineNamespace
