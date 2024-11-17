@@ -4,16 +4,30 @@
 
 namespace EngineNamespace {
 
-    Engine::Engine() : m_window(800, 600, "Engine Window") {
+    Engine::Engine() : m_window(800, 600, "Engine Window"),
+        m_eventSystem(std::make_unique<EventSystem>()) {
         Logger::init();
         Logger::info("Engine Constructor: Engine Initialized.");
     }
 
     Engine::~Engine() {
         Logger::info("Engine Destructor: Cleaning up Engine.");
+        m_window.~Window();
+        m_eventSystem.reset();
     }
 
     void Engine::Initialize() {
+        m_window.eventSystem = m_eventSystem.get();
+
+        //Subscribing to Events
+        m_window.eventSystem->subscribe("WindowCloseEvent", [](const Event& event){
+            Logger::info("Window Close Event received");
+        });
+        m_window.eventSystem->subscribe("KeyPressEvent", [](const Event& event){
+            const auto& keyEvent = static_cast<const KeyPressEvent&>(event);
+            Logger::info("Key Pressed: " + std::to_string(keyEvent.getKeyCode()));
+        });
+
         m_window.init();
         Logger::info("Engine Initialization Started.");
         

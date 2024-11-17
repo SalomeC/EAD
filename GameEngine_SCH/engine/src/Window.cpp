@@ -4,13 +4,43 @@
 
 namespace EngineNamespace {
 
+    //Static callback for GLFW key events:
+    static void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods){
+        if(action == GLFW_PRESS){
+            Window* userWindow = static_cast<Window*>(glfwGetWindowUserPointer(window));
+            if(userWindow && userWindow->eventSystem){
+                KeyPressEvent keyEvent(key);
+                userWindow->eventSystem->dispatch(keyEvent);
+            }
+        }
+    }
+
+    //Static callback for GLFW window close event
+    static void windowCloseCallback(GLFWwindow* window){
+        Window* userWindow = static_cast<Window*>(glfwGetWindowUserPointer(window));
+        if(userWindow && userWindow->eventSystem){
+            WindowCloseEvent closeEvent;
+            userWindow->eventSystem->dispatch(closeEvent);
+        }
+    }
+
+
+
+
+    //Class member functions
+
     Window::Window(int width, int height, const std::string& title)
         : m_width(width), m_height(height), m_title(title), m_window(nullptr) {}
 
     Window::~Window() {
         if (m_window) {
+            // Reset callbacks before destroying the window
+            glfwSetKeyCallback(static_cast<GLFWwindow*>(m_window), nullptr);
+            glfwSetWindowCloseCallback(static_cast<GLFWwindow*>(m_window), nullptr);
+
             glfwDestroyWindow(static_cast<GLFWwindow*>(m_window));
         }
+        m_window = nullptr;
         glfwTerminate();
     }
 
@@ -29,9 +59,17 @@ namespace EngineNamespace {
         if (!m_window) {
             Logger::error("Failed to create GLFW window");
             glfwTerminate();
-        } else {
-            Logger::info("GLFW window created successfully");
+            return;
         }
+
+        Logger::info("GLFW window created successfully");
+
+        glfwSetWindowUserPointer(static_cast<GLFWwindow*>(m_window), this);
+
+        // Setting the GLFW callbacks
+        glfwSetKeyCallback(static_cast<GLFWwindow*>(m_window), keyCallback);
+        glfwSetWindowCloseCallback(static_cast<GLFWwindow*>(m_window), windowCloseCallback);
+        
     }
 
     void Window::update() {

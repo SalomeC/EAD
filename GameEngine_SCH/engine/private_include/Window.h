@@ -1,6 +1,7 @@
 #ifndef ENGINE_WINDOW_H
 #define ENGINE_WINDOW_H
 
+#include "EventSystem.h"
 #include <string>
 
 namespace EngineNamespace{
@@ -13,6 +14,8 @@ namespace EngineNamespace{
             void init();
             void update();
             bool shouldClose() const; 
+
+            EventSystem* eventSystem;
 
         private:
             int m_width;

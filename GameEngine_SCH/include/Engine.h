@@ -2,6 +2,9 @@
 #define MYENGINE_H
 
 #include "Window.h"
+#include "EventSystem.h"
+
+#include <memory>
 
 // Define MYENGINE_API based on the platform
 #ifdef __linux__
@@ -28,7 +31,8 @@ namespace EngineNamespace {
          void Stop();   
       
       private:
-         EngineNamespace::Window m_window; // Window object
+         EngineNamespace::Window m_window; // Window instance
+         std::unique_ptr<EventSystem> m_eventSystem;
 
       };
 
